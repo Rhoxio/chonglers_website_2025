@@ -2,7 +2,7 @@
 require 'graphql/client'
 require 'graphql/client/http'
 
-class WarcraftLogsGraphQLClient
+class WarcraftLogsGraphQlClient
   # GraphQL endpoint
   HTTP = GraphQL::Client::HTTP.new("https://www.warcraftlogs.com/api/v2/client") do
     def headers(context)
