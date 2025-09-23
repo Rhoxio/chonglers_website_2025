@@ -10,14 +10,42 @@ class WarcraftLogsGraphQLClient
     end
   end
 
-  # Load schema from remote (you can also cache this)
-  Schema = GraphQL::Client.load_schema(HTTP)
+  def initialize
+    @client_id = ENV['WARCRAFTLOGS_CLIENT_ID']
+    @client_secret = ENV['WARCRAFTLOGS_CLIENT_SECRET']
+    @access_token = nil
+    @schema = nil
+    @client = nil
+  end
 
-  # Create client
-  Client = GraphQL::Client.new(schema: Schema, execute: HTTP)
+  # Lazy load schema and client
+  def schema
+    return @schema if @schema
 
-  # Define queries as constants
-  GUILD_QUERY = Client.parse <<~GRAPHQL
+    # Only load if credentials are available
+    return nil unless @client_id && @client_secret
+
+    begin
+      authenticate! unless @access_token
+      @schema = GraphQL::Client.load_schema(HTTP, context: { access_token: @access_token })
+    rescue => e
+      Rails.logger.error "Failed to load GraphQL schema: #{e.message}"
+      nil
+    end
+  end
+
+  def client
+    return @client if @client
+    return nil unless schema
+
+    @client = GraphQL::Client.new(schema: schema, execute: HTTP)
+  end
+
+  # Define queries dynamically
+  def guild_query
+    return nil unless client
+
+    @guild_query ||= client.parse <<~GRAPHQL
     query($guildID: Int!) {
       guildData {
         guild(id: $guildID) {
@@ -44,8 +72,12 @@ class WarcraftLogsGraphQLClient
       }
     }
   GRAPHQL
+  end
 
-  GUILD_REPORTS_QUERY = Client.parse <<~GRAPHQL
+  def guild_reports_query
+    return nil unless client
+
+    @guild_reports_query ||= client.parse <<~GRAPHQL
     query($guildID: Int!, $limit: Int!) {
       guildData {
         guild(id: $guildID) {
@@ -72,8 +104,12 @@ class WarcraftLogsGraphQLClient
       }
     }
   GRAPHQL
+  end
 
-  CHARACTER_QUERY = Client.parse <<~GRAPHQL
+  def character_query
+    return nil unless client
+
+    @character_query ||= client.parse <<~GRAPHQL
     query($name: String!, $server: String!, $region: String!) {
       characterData {
         character(name: $name, serverSlug: $server, serverRegion: $region) {
@@ -94,11 +130,6 @@ class WarcraftLogsGraphQLClient
       }
     }
   GRAPHQL
-
-  def initialize
-    @client_id = ENV['WARCRAFTLOGS_CLIENT_ID']
-    @client_secret = ENV['WARCRAFTLOGS_CLIENT_SECRET']
-    @access_token = nil
   end
 
   # Authenticate and get access token
@@ -127,46 +158,52 @@ class WarcraftLogsGraphQLClient
 
   # Get guild information by ID
   def get_guild(guild_id)
+    return nil unless client && guild_query
+
     authenticate! unless @access_token
-    
-    result = Client.query(GUILD_QUERY, 
+
+    result = client.query(guild_query,
                          variables: { guildID: guild_id },
                          context: { access_token: @access_token })
-    
+
     if result.errors.any?
       raise "GraphQL errors: #{result.errors.map(&:message).join(', ')}"
     end
-    
+
     result.data.guild_data.guild
   end
 
   # Get guild reports
   def get_guild_reports(guild_id, limit = 10)
+    return nil unless client && guild_reports_query
+
     authenticate! unless @access_token
-    
-    result = Client.query(GUILD_REPORTS_QUERY,
+
+    result = client.query(guild_reports_query,
                          variables: { guildID: guild_id, limit: limit },
                          context: { access_token: @access_token })
-    
+
     if result.errors.any?
       raise "GraphQL errors: #{result.errors.map(&:message).join(', ')}"
     end
-    
+
     result.data.guild_data.guild.recent_reports.data
   end
 
   # Get character information
   def get_character(name, server, region = 'US')
+    return nil unless client && character_query
+
     authenticate! unless @access_token
-    
-    result = Client.query(CHARACTER_QUERY,
+
+    result = client.query(character_query,
                          variables: { name: name, server: server, region: region },
                          context: { access_token: @access_token })
-    
+
     if result.errors.any?
       raise "GraphQL errors: #{result.errors.map(&:message).join(', ')}"
     end
-    
+
     result.data.character_data.character
   end
 
