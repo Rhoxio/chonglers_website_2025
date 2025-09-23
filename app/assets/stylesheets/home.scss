@@ -195,7 +195,7 @@ nav {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -207,10 +207,24 @@ nav {
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: inherit;
+    text-decoration: none;
   }
 
   img {
@@ -218,6 +232,8 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    background: url('fade-stagger-squares.svg') center center no-repeat;
+    background-size: 60px 60px;
   }
 
   &:hover img {
@@ -247,12 +263,13 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: $text-primary;
+    color: $text-primary !important;
   }
 
   p {
     opacity: 0.9;
     font-size: 0.9rem;
+    color: $text-primary !important;
   }
 }
 
@@ -489,7 +506,244 @@ footer {
   }
 }
 
+// Image Modal Styles
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+
+  &.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: $primary-bg;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  max-width: 98vw;
+  max-height: 98vh;
+  width: 1600px;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: $text-primary;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.modal-main-image {
+  height: 800px;
+  background: $secondary-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.main-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: $text-primary;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .arrow-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+  }
+}
+
+.modal-arrow-left {
+  left: 2rem;
+
+  .arrow-icon {
+    transform: scaleX(-1);
+  }
+}
+
+.modal-arrow-right {
+  right: 2rem;
+}
+
+.loading-placeholder {
+  color: $text-secondary;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+#modalMainImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: url('fade-stagger-squares.svg') center center no-repeat;
+  background-size: 60px 60px;
+}
+
+.modal-carousel {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid $border-color;
+}
+
+.carousel-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.carousel-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $accent-slate;
+    transform: scale(1.05);
+  }
+
+  &.active {
+    border-color: $accent-light;
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: url('fade-stagger-squares.svg') center center no-repeat;
+    background-size: 40px 40px;
+  }
+}
+
+.modal-info {
+  padding: 1.5rem;
+  border-top: 1px solid $border-color;
+
+  h3 {
+    color: $accent-light;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: 1.5;
+  }
+}
+
 // Responsive Design
+// Modal responsive adjustments
+@media (max-width: 1400px) {
+  .modal-content {
+    width: 90vw;
+  }
+
+  .modal-main-image {
+    height: 70vh;
+  }
+}
+
+// Tablet breakpoint
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-content {
+    width: 95vw;
+    max-height: 90vh;
+  }
+
+  .modal-main-image {
+    height: 60vh;
+  }
+
+  .modal-arrow {
+    width: 50px;
+    height: 50px;
+
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .modal-arrow-left {
+    left: 1rem;
+  }
+
+  .modal-arrow-right {
+    right: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;

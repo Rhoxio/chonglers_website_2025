@@ -56,6 +56,9 @@ WARCRAFT_LOGS_CLIENT_SECRET=your_warcraft_logs_client_secret
 
 # AI Integration (optional)
 OPENAI_API_KEY=your_openai_api_key
+
+# Cloudinary (for image uploads)
+CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
 ```
 
 ### 4. Run the Application

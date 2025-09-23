@@ -5,6 +5,7 @@ class AdminController < ApplicationController
   def dashboard
     @users_count = User.count
     @admin_count = User.where(admin: true).count
+    @images_count = Image.count
     @recent_users = User.order(created_at: :desc).limit(5)
   end
 

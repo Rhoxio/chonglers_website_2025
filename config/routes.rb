@@ -2,11 +2,23 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
   get "home/index"
-  
+
+  # Public image routes
+  resources :images, only: [:index, :show] do
+    member do
+      get :show_modal
+    end
+  end
+
   # Admin routes
   get "admin/dashboard", to: "admin#dashboard", as: :admin_dashboard
   get "admin/users", to: "admin#users", as: :admin_users
   patch "admin/users/:id/toggle_admin", to: "admin#toggle_admin", as: :admin_toggle_admin
+
+  # Admin image management
+  namespace :admin do
+    resources :images, except: [:edit, :update]
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

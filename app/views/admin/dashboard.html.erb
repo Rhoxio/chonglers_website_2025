@@ -159,6 +159,7 @@
     <div class="admin-nav">
       <%= link_to "Dashboard", admin_dashboard_path %>
       <%= link_to "Manage Users", admin_users_path %>
+      <%= link_to "Manage Images", admin_images_path %>
     </div>
 
     <div class="stats-grid">
@@ -173,6 +174,10 @@
       <div class="stat-card">
         <div class="stat-number"><%= @users_count - @admin_count %></div>
         <div class="stat-label">Regular Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><%= @images_count %></div>
+        <div class="stat-label">Images</div>
       </div>
     </div>
 

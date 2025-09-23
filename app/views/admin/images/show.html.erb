@@ -1,0 +1,25 @@
+<% content_for :title, "#{@image.title} - Admin" %>
+<%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+
+<div class="admin-container">
+  <a href="<%= admin_images_path %>" class="back-link">← Back to Images</a>
+
+  <div class="admin-header">
+    <h1 class="admin-title"><%= @image.title %></h1>
+    <% if @image.description.present? %>
+      <p class="admin-subtitle"><%= @image.description %></p>
+    <% end %>
+  </div>
+
+  <div class="image-details">
+    <div class="image-display">
+      <img src="<%= @image.url %>" alt="<%= @image.title %>" style="max-width: 100%; height: auto; border-radius: 15px;">
+    </div>
+
+    <div class="image-actions" style="margin-top: 2rem;">
+      <%= link_to "Delete Image", admin_image_path(@image), method: :delete,
+                 confirm: "Are you sure you want to delete this image?",
+                 class: "btn-delete" %>
+    </div>
+  </div>
+</div>

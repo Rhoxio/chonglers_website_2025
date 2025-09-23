@@ -1,0 +1,57 @@
+<%= turbo_stream.update "modal_container" do %>
+  <div id="imageModal"
+       class="image-modal active"
+       data-controller="modal"
+       data-modal-target="modal">
+    <div class="modal-backdrop"
+         data-action="click->modal#closeOnBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close"
+              data-action="click->modal#close">&times;</button>
+
+      <div class="modal-main-image">
+        <button class="modal-arrow modal-arrow-left"
+                data-action="click->modal#previousImage">
+          <%= image_tag "double-right-chevron.svg", class: "arrow-icon" %>
+        </button>
+
+        <div class="main-image-container">
+          <div class="loading-placeholder"
+               data-modal-target="placeholder">Click a thumbnail below to view image</div>
+          <img id="modalMainImage"
+               src=""
+               alt=""
+               style="display: none;"
+               data-modal-target="mainImage">
+        </div>
+
+        <button class="modal-arrow modal-arrow-right"
+                data-action="click->modal#nextImage">
+          <%= image_tag "double-right-chevron.svg", class: "arrow-icon" %>
+        </button>
+      </div>
+
+      <div class="modal-carousel">
+        <div class="carousel-thumbnails">
+          <% @gallery_images.each_with_index do |image, index| %>
+            <div class="carousel-thumb <%= 'active' if index == @selected_index %>"
+                 data-action="click->modal#selectThumbnail"
+                 data-thumbnail-full-url-value="<%= image.url %>"
+                 data-thumbnail-title-value="<%= image.title %>"
+                 data-thumbnail-description-value="<%= image.description %>">
+              <img src="<%= image.thumbnail(width: 80, height: 80) %>" alt="<%= image.title %>">
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="modalTitle"
+            data-modal-target="title"><%= @image.title %></h3>
+        <p id="modalDescription"
+           data-modal-target="description"><%= @image.description %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
