@@ -1,0 +1,230 @@
+// Authentication Views Styles
+// Dark theme with slate, blues, and off-whites
+
+// Variables (matching home.scss)
+$primary-bg: #0f1419;
+$secondary-bg: #1e293b;
+$accent-slate: #64748b;
+$accent-light: #e2e8f0;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$border-color: rgba(255, 255, 255, 0.1);
+
+// Auth Container
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $secondary-bg 0%, #334155 50%, #475569 100%);
+  padding: 2rem;
+}
+
+// Auth Card
+.auth-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+// Auth Header
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, $accent-slate, $accent-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.auth-title {
+  color: $text-primary;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+// Form Fields
+.field {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    color: $accent-light;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    color: $text-primary;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-slate;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+    }
+
+    &::placeholder {
+      color: $accent-slate;
+    }
+  }
+}
+
+// Remember Me Checkbox
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: $accent-slate;
+  }
+
+  label {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+// Actions
+.actions {
+  margin-bottom: 1.5rem;
+}
+
+// Buttons
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #475569, $accent-slate);
+  color: $text-primary;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, $accent-slate, $text-secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(71, 85, 105, 0.3);
+  }
+}
+
+// Auth Links
+.auth-links {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid $border-color;
+
+  a {
+    color: $accent-slate;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $text-secondary;
+    }
+  }
+}
+
+// Back Link
+.back-link {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: $accent-slate;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $text-secondary;
+  }
+}
+
+// Error Messages
+.error-messages {
+  background: rgba(248, 215, 218, 0.1);
+  border: 1px solid rgba(248, 215, 218, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    color: #f8d7da;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: #f8d7da;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+// Password Requirements
+.password-requirements {
+  color: $text-secondary;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    padding: 2rem;
+  }
+
+  .back-link {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: block;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}

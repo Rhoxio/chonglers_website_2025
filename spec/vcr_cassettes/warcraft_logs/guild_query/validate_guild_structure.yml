@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Basic OWZlMWQxYzItNDIwZi00NzBjLTk2ZjItOTJiMjUwOTg4ZTA5OmxSRkhJbzM4ZERHTmlwMTVRZmpYa3hUWjVsdzdsVEw2dEFEbWozc0I=
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Sep 2025 22:59:40 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '1144'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, private
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Remaining:
+      - '281'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token_type":"Bearer","expires_in":31104000,"access_token":"<ACCESS_TOKEN>"}'
+  recorded_at: Sat, 20 Sep 2025 22:59:41 GMT
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/api/v2/client
+    body:
+      encoding: UTF-8
+      string: '{"query":"query($guildID: Int!) {\n  guildData {\n    guild(id: $guildID)
+        {\n      id\n      name\n      server {\n        name\n        slug\n        region
+        {\n          name\n          slug\n        }\n      }\n      members {\n        data
+        {\n          id\n          name\n          classID\n          level\n          guildRank\n        }\n      }\n    }\n  }\n}\n","variables":{"guildID":123456}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZmUxZDFjMi00MjBmLTQ3MGMtOTZmMi05MmIyNTA5ODhlMDkiLCJqdGkiOiIwZTFhNTcwYzUyMGYxN2I0ZWYzOWEyODNhMzExNWYyMTg5ZDg2ZmI1N2UzYzMxY2JlYWFhM2NhMGQxOTM1MTM5MjhhMGU3NzUzOGJkYzg2ZiIsImlhdCI6MTc1ODQwOTE4MC4yOTY2NDMsIm5iZiI6MTc1ODQwOTE4MC4yOTY2NDcsImV4cCI6MTc4OTUxMzE4MC4yODU4NjYsInN1YiI6IiIsInNjb3BlcyI6WyJ2aWV3LXVzZXItcHJvZmlsZSIsInZpZXctcHJpdmF0ZS1yZXBvcnRzIl19.xdHNLxLAu-eT1S_Hj7n7CQUU04q1uWNwm5rN5To0thQSj1C3GX3GN7Bh1ALrfTyVFZ-PIGl775g3F49FOdQsMTeQwXHxARrWrrIav0RIaTd4J-tgtcp1kLcdObS0fvTuyZopyVvsQ42eDpXVdlWHiAAw04u5Vsw-329NYxzBMrkkQP5_G38Ywt0mzJ-ZBcdtwqF1wxRCemjCuB6qn88zHLe8MXVrOBRkOpp5y103ahlxAOAsU2GNkYg0gVxE4TUZOlU2-Ukbuucm86F2lDWI8-AN8j6IJ06upetdZDJsHfM7hWsENAMUWarJKMh-8-TBJ-dZOsulqHcms1RWwVxt245GzKqOQ1mORdT-HskIDJ6n9nNSNiCDUQ0ujydOe3qnGW_lb0dF9V4aT9u5U31QOzcaa46spTBVpMItggpBryM4KisDBvJDpVpDPSaVmA5D6zIpEJf6EzeosctdAcV_xAFrudKk4lE22MB58Xu9wLGfVFpYt1rwCHyqL4NfrnsErfgYuMC6GqJzhKZLxEYSPAKIKeceDb_YMHnam0pYWoQvbXjMr6UC99pgx8KwU-fIKgW8zMxUnowgrSQPHWpIDoctmivi5EpBzSxrc-Wp_eoWtwfOPkD3fCr9y1O1qtKdh6LFyYoefQloBiFWT0468DpirmBDVMZI7BTHJk7K880
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Sep 2025 22:59:45 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '968'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '780'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"guildData":{"guild":{"id":123456,"name":"Everlasting Bloodline","server":{"name":"Laughing
+        Skull","slug":"laughing-skull","region":{"name":"United States","slug":"US"}},"members":{"data":[{"id":12237660,"name":"Vitoo","classID":11,"level":70,"guildRank":6},{"id":28986411,"name":"Gripnrip","classID":11,"level":40,"guildRank":3},{"id":12237662,"name":"Viniven","classID":9,"level":38,"guildRank":6},{"id":12237669,"name":"Cratfu","classID":5,"level":35,"guildRank":1},{"id":12237667,"name":"Popebauer","classID":7,"level":35,"guildRank":2},{"id":12237661,"name":"Clauzz","classID":2,"level":35,"guildRank":4},{"id":12237666,"name":"Popeyike","classID":7,"level":35,"guildRank":4},{"id":12237664,"name":"Yike","classID":4,"level":35,"guildRank":4},{"id":12237670,"name":"Gregt","classID":2,"level":35,"guildRank":5},{"id":12237665,"name":"Icolis","classID":1,"level":35,"guildRank":5},{"id":12237663,"name":"Kuchar","classID":6,"level":35,"guildRank":5}]}}}}}'
+  recorded_at: Sat, 20 Sep 2025 22:59:45 GMT
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/api/v2/client
+    body:
+      encoding: UTF-8
+      string: '{"query":"query($guildID: Int!) {\n  guildData {\n    guild(id: $guildID)
+        {\n      id\n      name\n      server {\n        name\n        slug\n        region
+        {\n          name\n          slug\n        }\n      }\n      members {\n        data
+        {\n          id\n          name\n          classID\n          level\n          guildRank\n        }\n      }\n    }\n  }\n}\n","variables":{"guildID":123456}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Sat, 20 Sep 2025 23:16:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '798'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: UTF-8
+      string: '{"error":"Unauthenticated."}'
+  recorded_at: Sat, 20 Sep 2025 23:16:58 GMT
+recorded_with: VCR 6.3.1

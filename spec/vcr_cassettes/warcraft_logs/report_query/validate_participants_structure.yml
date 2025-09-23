@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Basic OWZlMWQxYzItNDIwZi00NzBjLTk2ZjItOTJiMjUwOTg4ZTA5OmxSRkhJbzM4ZERHTmlwMTVRZmpYa3hUWjVsdzdsVEw2dEFEbWozc0I=
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Sep 2025 00:49:03 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '1144'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, private
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Remaining:
+      - '291'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token_type":"Bearer","expires_in":31104000,"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZmUxZDFjMi00MjBmLTQ3MGMtOTZmMi05MmIyNTA5ODhlMDkiLCJqdGkiOiJlMGNhM2M5MTIzNjYwNmY3NmNkZWVkMzE3NDE5MzQ0N2FhNDQ3MDVhN2ZiZDYyZTVlODg0OTFhNWFlZDFkMDkwZmViNzM5YjAwZjNhYzA2NyIsImlhdCI6MTc1ODQxNTc0My42NTA5MjQsIm5iZiI6MTc1ODQxNTc0My42NTA5MjksImV4cCI6MTc4OTUxOTc0My42NDA1MDgsInN1YiI6IiIsInNjb3BlcyI6WyJ2aWV3LXVzZXItcHJvZmlsZSIsInZpZXctcHJpdmF0ZS1yZXBvcnRzIl19.PZwWsJ3OQnEK97wqu9JLaq6sBgOXnSxjoQD1eXTePRa9pKlTx8nx-pnfasxL4LfQL0G1EmDuYp34HbkrYHXHscfx4nXn9nyKBYRgCIMUHLGHRRQ47Bp0C5cEnDwd3LZR_wICR3IhABsngQYH54Vrw54Nnl3Is0GJLCpZYBJkwHjzcIjPrIzCcyZGViwEh_ANyxU0rrbAa3VbS2yy4RhxP7sQDeCzlodnZN6Wf_98PrJ7SeHzmrbrtoHor4_UyOFZMEI-M3jwrIQqLa1d8a8qSNqM6TpzwxARpdDR-R9O45EODVTZHJCeXT8i6hLnqOXHRH_t6ZDobLZ_bMnRZq-TorIjrMR1_Et6XeAYXMDPvRR7358kop_NojYuAvMKXdosPTAQUja1y7tjsuOW64XgxCdWVIq-XTbNVo-hqc7vBI07b5XqXjgVu58BDaNx5KJLrCMmv8MotauHRXr0UQIM5_Gmj12xjwpGs_2TqYzcfH64VAAS7opjVVRdO3DYHD97-AsCuCrXfLMpEERNWFQZIX6Y-y0Jw2552IfkRBXMaHUfOkpVOvrubgniPbjuuBR77XqfXLEGXLxCV0Gg4GREe_cK1U-sXe7dJvnG3icYDgTiBdZb0iOKyNPn1W4lYDIZvfg1GtHTOth1y5XO9uHZfj9p-r3FJvs3MOKp4Pi5rts"}'
+  recorded_at: Sun, 21 Sep 2025 00:49:04 GMT
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/api/v2/client
+    body:
+      encoding: UTF-8
+      string: '{"query":"query($reportCode: String!) {\n  reportData {\n    report(code:
+        $reportCode) {\n      masterData {\n        actors {\n          id\n          name\n          type\n          subType\n        }\n      }\n    }\n  }\n}\n","variables":{"reportCode":"ABC123def456"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Sep 2025 00:49:06 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '159'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '790'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"message":"This report does not exist.","locations":[{"line":3,"column":5}],"path":["reportData","report"]}],"data":{"reportData":{"report":null}}}'
+  recorded_at: Sun, 21 Sep 2025 00:49:09 GMT
+recorded_with: VCR 6.3.1

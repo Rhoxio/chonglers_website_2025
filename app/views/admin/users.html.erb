@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users - Chonglers Admin</title>
+  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+  <style>
+    .admin-container {
+      min-height: 100vh;
+      background: #0f1419;
+      padding: 2rem;
+    }
+
+    .admin-header {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .admin-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #64748b, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .admin-subtitle {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .admin-nav {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .admin-nav a {
+      background: linear-gradient(135deg, #475569, #64748b);
+      color: #f8fafc;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .admin-nav a:hover {
+      background: linear-gradient(135deg, #64748b, #94a3b8);
+      transform: translateY(-1px);
+    }
+
+    .users-table {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      overflow-x: auto;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th {
+      color: #e2e8f0;
+      font-weight: 600;
+      text-align: left;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .table td {
+      color: #f8fafc;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .admin-badge {
+      background: linear-gradient(135deg, #475569, #64748b);
+      color: #f8fafc;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .toggle-btn {
+      background: linear-gradient(135deg, #475569, #64748b);
+      color: #f8fafc;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: linear-gradient(135deg, #64748b, #94a3b8);
+      transform: translateY(-1px);
+    }
+
+    .toggle-btn.danger {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+    }
+
+    .toggle-btn.danger:hover {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+    }
+
+    .back-link {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #94a3b8;
+    }
+
+    .user-email {
+      color: #f8fafc;
+      font-weight: 500;
+    }
+
+    .user-date {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <a href="<%= root_path %>" class="back-link">← Back to Home</a>
+    
+    <div class="admin-header">
+      <h1 class="admin-title">Manage Users</h1>
+      <p class="admin-subtitle">User management and admin privileges</p>
+    </div>
+
+    <div class="admin-nav">
+      <%= link_to "Dashboard", admin_dashboard_path %>
+      <%= link_to "Manage Users", admin_users_path %>
+    </div>
+
+    <div class="users-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Joined</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <div class="user-email"><%= user.email %></div>
+                <% if user == current_user %>
+                  <div class="user-date">(You)</div>
+                <% end %>
+              </td>
+              <td class="user-date"><%= user.created_at.strftime("%B %d, %Y") %></td>
+              <td>
+                <% if user.admin? %>
+                  <span class="admin-badge">Admin</span>
+                <% else %>
+                  <span style="color: #94a3b8;">User</span>
+                <% end %>
+              </td>
+              <td>
+                <% unless user == current_user %>
+                  <%= form_with url: admin_toggle_admin_path(user), method: :patch, local: true do |form| %>
+                    <% if user.admin? %>
+                      <%= form.submit "Remove Admin", class: "toggle-btn danger" %>
+                    <% else %>
+                      <%= form.submit "Make Admin", class: "toggle-btn" %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <span style="color: #94a3b8; font-size: 0.9rem;">Cannot modify self</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

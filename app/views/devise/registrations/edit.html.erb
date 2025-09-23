@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile - Chonglers</title>
+  <%= stylesheet_link_tag "auth", "data-turbo-track": "reload" %>
+</head>
+<body>
+  <a href="<%= root_path %>" class="back-link">← Back to Home</a>
+  
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">Chonglers</div>
+        <h1 class="auth-title">Edit Profile</h1>
+        <p class="auth-subtitle">Update your account information</p>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="field">
+            <p class="password-requirements">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :password %> <i class="password-requirements">(leave blank if you don't want to change it)</i>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password" %>
+          <% if @minimum_password_length %>
+            <div class="password-requirements">
+              (<%= @minimum_password_length %> characters minimum)
+            </div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm new password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :current_password %> <i class="password-requirements">(we need your current password to confirm your changes)</i>
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update Profile", class: "btn-primary" %>
+        </div>
+      <% end %>
+
+      <div class="auth-links">
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: "color: #f8d7da;" %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

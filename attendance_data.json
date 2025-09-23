@@ -1,0 +1,363 @@
+{
+  "total_raids": 17,
+  "total_reports": 22,
+  "total_guild_members": 25,
+  "active_members": 20,
+  "attendance": [
+    {
+      "name": "Chongalina",
+      "attendance_percentage": 100.0,
+      "raids_attended": 17,
+      "total_fights": 366
+    },
+    {
+      "name": "Softbody",
+      "attendance_percentage": 100.0,
+      "raids_attended": 17,
+      "total_fights": 366
+    },
+    {
+      "name": "Sassqt",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 354
+    },
+    {
+      "name": "Grw",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 349
+    },
+    {
+      "name": "Bungarst",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 339
+    },
+    {
+      "name": "Chongaholic",
+      "attendance_percentage": 88.2,
+      "raids_attended": 15,
+      "total_fights": 316
+    },
+    {
+      "name": "Syledon",
+      "attendance_percentage": 88.2,
+      "raids_attended": 15,
+      "total_fights": 314
+    },
+    {
+      "name": "Chongshaggy",
+      "attendance_percentage": 76.5,
+      "raids_attended": 13,
+      "total_fights": 292
+    },
+    {
+      "name": "Provocative",
+      "attendance_percentage": 58.8,
+      "raids_attended": 10,
+      "total_fights": 215
+    },
+    {
+      "name": "Dariusrucker",
+      "attendance_percentage": 52.9,
+      "raids_attended": 9,
+      "total_fights": 214
+    },
+    {
+      "name": "Samgee",
+      "attendance_percentage": 35.3,
+      "raids_attended": 6,
+      "total_fights": 126
+    },
+    {
+      "name": "Lskynyrd",
+      "attendance_percentage": 35.3,
+      "raids_attended": 6,
+      "total_fights": 126
+    },
+    {
+      "name": "Laurranna",
+      "attendance_percentage": 35.3,
+      "raids_attended": 6,
+      "total_fights": 126
+    },
+    {
+      "name": "Chongmeat",
+      "attendance_percentage": 23.5,
+      "raids_attended": 4,
+      "total_fights": 84
+    },
+    {
+      "name": "Smolpharma",
+      "attendance_percentage": 23.5,
+      "raids_attended": 4,
+      "total_fights": 74
+    },
+    {
+      "name": "Blamethetree",
+      "attendance_percentage": 23.5,
+      "raids_attended": 4,
+      "total_fights": 75
+    },
+    {
+      "name": "Craterhoof",
+      "attendance_percentage": 17.6,
+      "raids_attended": 3,
+      "total_fights": 50
+    },
+    {
+      "name": "Bumbleweed",
+      "attendance_percentage": 17.6,
+      "raids_attended": 3,
+      "total_fights": 57
+    },
+    {
+      "name": "Heyst",
+      "attendance_percentage": 17.6,
+      "raids_attended": 3,
+      "total_fights": 48
+    },
+    {
+      "name": "Fîzzlewig",
+      "attendance_percentage": 5.9,
+      "raids_attended": 1,
+      "total_fights": 27
+    }
+  ],
+  "top_performers": [
+    {
+      "name": "Chongalina",
+      "attendance_percentage": 100.0,
+      "raids_attended": 17,
+      "total_fights": 366
+    },
+    {
+      "name": "Softbody",
+      "attendance_percentage": 100.0,
+      "raids_attended": 17,
+      "total_fights": 366
+    },
+    {
+      "name": "Sassqt",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 354
+    },
+    {
+      "name": "Grw",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 349
+    },
+    {
+      "name": "Bungarst",
+      "attendance_percentage": 94.1,
+      "raids_attended": 16,
+      "total_fights": 339
+    }
+  ],
+  "encounter_stats": [
+    {
+      "encounter": "The Stone Guard (4)",
+      "kill_rate": 23.5,
+      "kills": 4,
+      "attempts": 17
+    },
+    {
+      "encounter": "Feng the Accursed (4)",
+      "kill_rate": 25.0,
+      "kills": 4,
+      "attempts": 16
+    },
+    {
+      "encounter": "Gara'jal the Spiritbinder (4)",
+      "kill_rate": 25.0,
+      "kills": 4,
+      "attempts": 16
+    },
+    {
+      "encounter": "The Spirit Kings (4)",
+      "kill_rate": 7.5,
+      "kills": 3,
+      "attempts": 40
+    },
+    {
+      "encounter": "Elegon (4)",
+      "kill_rate": 10.0,
+      "kills": 3,
+      "attempts": 30
+    },
+    {
+      "encounter": "Will of the Emperor (4)",
+      "kill_rate": 5.0,
+      "kills": 2,
+      "attempts": 40
+    },
+    {
+      "encounter": "Imperial Vizier Zor'lok (4)",
+      "kill_rate": 10.0,
+      "kills": 2,
+      "attempts": 20
+    },
+    {
+      "encounter": "Blade Lord Ta'yak (4)",
+      "kill_rate": 15.0,
+      "kills": 3,
+      "attempts": 20
+    },
+    {
+      "encounter": "Garalon (4)",
+      "kill_rate": 16.7,
+      "kills": 2,
+      "attempts": 12
+    },
+    {
+      "encounter": "Wind Lord Mel'jarak (4)",
+      "kill_rate": 5.9,
+      "kills": 2,
+      "attempts": 34
+    },
+    {
+      "encounter": "Wind Lord Mel'jarak (3)",
+      "kill_rate": 22.2,
+      "kills": 2,
+      "attempts": 9
+    },
+    {
+      "encounter": "Amber-Shaper Un'sok (3)",
+      "kill_rate": 40.0,
+      "kills": 4,
+      "attempts": 10
+    },
+    {
+      "encounter": "Grand Empress Shek'zeer (3)",
+      "kill_rate": 20.0,
+      "kills": 4,
+      "attempts": 20
+    },
+    {
+      "encounter": "Protectors of the Endless (3)",
+      "kill_rate": 15.4,
+      "kills": 2,
+      "attempts": 13
+    },
+    {
+      "encounter": "Tsulong (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    },
+    {
+      "encounter": "Lei Shi (4)",
+      "kill_rate": 9.1,
+      "kills": 1,
+      "attempts": 11
+    },
+    {
+      "encounter": "Sha of Fear (3)",
+      "kill_rate": 50.0,
+      "kills": 2,
+      "attempts": 4
+    },
+    {
+      "encounter": "Protectors of the Endless (4)",
+      "kill_rate": 0.0,
+      "kills": 0,
+      "attempts": 2
+    },
+    {
+      "encounter": "Tsulong (4)",
+      "kill_rate": 0.0,
+      "kills": 0,
+      "attempts": 2
+    },
+    {
+      "encounter": "Lei Shi (3)",
+      "kill_rate": 100.0,
+      "kills": 1,
+      "attempts": 1
+    },
+    {
+      "encounter": "Amber-Shaper Un'sok (4)",
+      "kill_rate": 0.0,
+      "kills": 0,
+      "attempts": 21
+    },
+    {
+      "encounter": "Garalon (3)",
+      "kill_rate": 20.0,
+      "kills": 3,
+      "attempts": 15
+    },
+    {
+      "encounter": "Imperial Vizier Zor'lok (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    },
+    {
+      "encounter": "Blade Lord Ta'yak (3)",
+      "kill_rate": 50.0,
+      "kills": 2,
+      "attempts": 4
+    },
+    {
+      "encounter": "Will of the Emperor (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    },
+    {
+      "encounter": "The Spirit Kings (3)",
+      "kill_rate": 100.0,
+      "kills": 1,
+      "attempts": 1
+    },
+    {
+      "encounter": "Elegon (3)",
+      "kill_rate": 50.0,
+      "kills": 1,
+      "attempts": 2
+    }
+  ],
+  "top_encounters": [
+    {
+      "encounter": "The Spirit Kings (3)",
+      "kill_rate": 100.0,
+      "kills": 1,
+      "attempts": 1
+    },
+    {
+      "encounter": "Will of the Emperor (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    },
+    {
+      "encounter": "Imperial Vizier Zor'lok (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    },
+    {
+      "encounter": "Lei Shi (3)",
+      "kill_rate": 100.0,
+      "kills": 1,
+      "attempts": 1
+    },
+    {
+      "encounter": "Tsulong (3)",
+      "kill_rate": 100.0,
+      "kills": 2,
+      "attempts": 2
+    }
+  ],
+  "overall_stats": {
+    "avg_attendance": 9.2,
+    "total_encounters": 27,
+    "successful_encounters": 24,
+    "best_kill_rate": 100.0,
+    "worst_kill_rate": 0.0
+  }
+}

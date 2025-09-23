@@ -1,0 +1,59 @@
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Chonglers Guild</h4>
+        <p>Elite World of Warcraft guild dedicated to excellence, camaraderie, and epic adventures in Azeroth.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Gallery", root_path + "#gallery" %></li>
+          <li><%= link_to "Features", root_path + "#features" %></li>
+          <li><%= link_to "Join Us", root_path + "#join" %></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Account</h4>
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to "Profile", edit_user_registration_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to "Admin Panel", admin_dashboard_path %></li>
+            <% end %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Discord">
+            <span>💬</span>
+          </a>
+          <a href="#" class="social-link" title="Battle.net">
+            <span>🎮</span>
+          </a>
+          <a href="#" class="social-link" title="Twitch">
+            <span>📺</span>
+          </a>
+          <a href="#" class="social-link" title="YouTube">
+            <span>📹</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Chonglers Guild. All rights reserved. | World of Warcraft is a trademark of Blizzard Entertainment.</p>
+    </div>
+  </div>
+</footer>

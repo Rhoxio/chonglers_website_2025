@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Basic OWZlMWQxYzItNDIwZi00NzBjLTk2ZjItOTJiMjUwOTg4ZTA5OmxSRkhJbzM4ZERHTmlwMTVRZmpYa3hUWjVsdzdsVEw2dEFEbWozc0I=
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Sep 2025 00:48:45 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '1140'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, private
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Remaining:
+      - '295'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token_type":"Bearer","expires_in":31104000,"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZmUxZDFjMi00MjBmLTQ3MGMtOTZmMi05MmIyNTA5ODhlMDkiLCJqdGkiOiI2OWU3OGU4ZWM2N2FkOTdjNGQ1ZjQ3MjYxMDk1NzBlMmU3Y2ZjNjc3NDgzZTMyZjU4MmViNWRlYmMyYjkxMTJhZjQ2ZGI5NTJlNDg2YzY4NSIsImlhdCI6MTc1ODQxNTcyNS43MzE5OTcsIm5iZiI6MTc1ODQxNTcyNS43MzIsImV4cCI6MTc4OTUxOTcyNS43MTk4NDksInN1YiI6IiIsInNjb3BlcyI6WyJ2aWV3LXVzZXItcHJvZmlsZSIsInZpZXctcHJpdmF0ZS1yZXBvcnRzIl19.alyNpoHvc6K8EMttqB-RqRYipayIin-IHsqvuWQ2ERgCmNjVzBrqA675M6173qZzjMeF6GtGGxpMAROp2q0xZmmH-Kahq8FfON8GJ1iZJXc8Xi6_RD31k5m-Fco_Nvj5t5rCUoclZecCX3vqnuXtu79C89I-5YvIk52WERKQctbvzf3WgjG3s4pnSDSN-qihuu1sIbWILaZ7FguQvT5nLqsW51B1Q3Wl1aS4JEReHVVangbI3ggUC2VRUAtE5hawse19XvpkZSM4xXaj-XmEOiQ61y9smDN7eIuLiCzp8z7O7ojEh0YlVqenAqs23xqyg-X4WyRrSsksPBjogV7Q9-nB-o7NEfew0qzNLdI9yYVB4_TzE17OIOvbm-D0gIHNEr0T4z4j72MvQLOGhT7uPuHhnRzo1AHhea8X-peHm5Woh1P-11fQ80VKDtEqzQorxO8etABltSE8C1DspjHWDa7QLDOa0ZZNgMnqPo3l-7CLMbRytAvcR_cAfM5L38GMIO-p2YdwBO8H9xgb4MrvGvPl2jtiWmtmWwni8RNuEGCxLR5PA11IP8PumkwmoMhYWItub0MN5avF1vcHReDBnELIj0RQiKhdnT96hWsy0b7ULqiD0LvR-xkWw2vcEsLranUrE64eSx_NoaGDEkQXYzCXpJpe0Zr2bj5X552eRz8"}'
+  recorded_at: Sun, 21 Sep 2025 00:48:45 GMT
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/api/v2/client
+    body:
+      encoding: UTF-8
+      string: '{"query":"query($reportCode: String!) {\n  reportData {\n    report(code:
+        $reportCode) {\n      code\n      title\n      startTime\n      endTime\n      zone
+        {\n        id\n        name\n      }\n      fights {\n        id\n        encounterID\n        name\n        difficulty\n        kill\n        startTime\n        endTime\n      }\n    }\n  }\n}\n","variables":{"reportCode":"ABC123def456"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Sep 2025 00:48:52 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '159'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '794'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"message":"This report does not exist.","locations":[{"line":3,"column":5}],"path":["reportData","report"]}],"data":{"reportData":{"report":null}}}'
+  recorded_at: Sun, 21 Sep 2025 00:48:52 GMT
+recorded_with: VCR 6.3.1

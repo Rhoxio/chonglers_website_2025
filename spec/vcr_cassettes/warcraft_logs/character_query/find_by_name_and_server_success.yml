@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Basic OWZlMWQxYzItNDIwZi00NzBjLTk2ZjItOTJiMjUwOTg4ZTA5OmxSRkhJbzM4ZERHTmlwMTVRZmpYa3hUWjVsdzdsVEw2dEFEbWozc0I=
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Sep 2025 23:07:16 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '1144'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, private
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Remaining:
+      - '299'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token_type":"Bearer","expires_in":31104000,"access_token":"<ACCESS_TOKEN>"}'
+  recorded_at: Sat, 20 Sep 2025 23:07:16 GMT
+- request:
+    method: post
+    uri: https://www.warcraftlogs.com/api/v2/client
+    body:
+      encoding: UTF-8
+      string: '{"query":"query($name: String!, $server: String!, $region: String!)
+        {\n  characterData {\n    character(name: $name, serverSlug: $server, serverRegion:
+        $region) {\n      id\n      name\n      classID\n      level\n      server
+        {\n        name\n        slug\n        region {\n          name\n          slug\n        }\n      }\n      guildRank\n    }\n  }\n}\n","variables":{"name":"Testchar","server":"test-server","region":"US"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.warcraftlogs.com
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZmUxZDFjMi00MjBmLTQ3MGMtOTZmMi05MmIyNTA5ODhlMDkiLCJqdGkiOiIxMGQyYzFkMjY1ZDJmNGVkZGVlYWIwOTk3ZTYxZmNhZjFlM2M0ZjI5MjBlMjE5M2VkYzg2MmFhZGM2ODJhNDcxOWM1OWJhYTM3N2U4YjJkZiIsImlhdCI6MTc1ODQwOTYzNi4xOTE5NTgsIm5iZiI6MTc1ODQwOTYzNi4xOTE5NjIsImV4cCI6MTc4OTUxMzYzNi4xODMyNzQsInN1YiI6IiIsInNjb3BlcyI6WyJ2aWV3LXVzZXItcHJvZmlsZSIsInZpZXctcHJpdmF0ZS1yZXBvcnRzIl19.U9WrqhrN8u-dUglcLGBuZBLqQsFkvzihARGoKPCdX2vAxo_yYATATPZs7-8ZxB8bPpxJnsUBa981mNUoKczCEGLpul_lwVg1j2F_QqZziaphK40Nt8kSHHRCblzG5NbYLsf7xXku5Kun9nHnlaIUI5EqkT3Lf78uaYptzbDtJVo2v2ftv984BBfjKA5fRv32qFPXS2aj9VhBA3MWI3lopv7QELH0Jf20sMKl4g3MDXidg43g4Y3OygB2OCXxZcT9VXYClSfdkbApNIj79kX-Btv49iTYJE3fo6Y3q7SVnbfk1n3g1C1g3m33PQieK5N5XKLykgt9dTdBl-MfTJmLtQdQT2LHEAEL0d229H_kSPqYmcMe1oze8l29jCG0fRFL2WTltjSjLpNhsbKpqwo6_ZglpeiCJwOeLtt4rSlp5S8D6gywvAMKYbFqC8SV1fJBxuMF9fddlABdf2eR75RnWtjza1oMJhIwIrQZ8g6V-5r7-rEBJXIMp71kRLn6gr8aWdxY10lE7mPK2_nTadgu08XbtyVdJxhmWGZdOZ6ScBwdGMnuyQKeFU4Vr_3sIWMcCt7GU3ESyPJDJzVWjxacQ-Z-3jZpnBEwgfhyeyxPdaup0d-8tn9xpQ1iayVZEVfoXory_2Ziqpe1osvnlolhP9ZYMkdu_61OBJqOSIbR05s
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Sep 2025 23:07:18 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '45'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache/2.4.58 (Amazon Linux) OpenSSL/3.0.8
+      Cache-Control:
+      - no-cache, private
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '798'
+      Vary:
+      - Origin,X-Forwarded-Proto,Authorization,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"characterData":{"character":null}}}'
+  recorded_at: Sat, 20 Sep 2025 23:07:19 GMT
+recorded_with: VCR 6.3.1
