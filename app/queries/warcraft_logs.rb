@@ -13,5 +13,4 @@ module WarcraftLogs
   require_relative 'warcraft_logs/report_query'
   require_relative 'warcraft_logs/encounter_query'
   require_relative 'warcraft_logs/performance_query'
-  require_relative 'warcraft_logs/attendance_query_new'
 end
