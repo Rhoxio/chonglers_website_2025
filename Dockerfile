@@ -19,7 +19,7 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev libyaml-dev
 
 # Install specific Bundler version to match Gemfile.lock
 RUN gem install bundler -v 2.7.2
