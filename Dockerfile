@@ -21,6 +21,9 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev
 
+# Install specific Bundler version to match Gemfile.lock
+RUN gem install bundler -v 2.7.2
+
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
