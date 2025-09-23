@@ -216,16 +216,78 @@ WarcraftLogs::PerformanceQuery.get_guild_performance(guild_id, start_date)
 
 ## 🚢 Deployment
 
-### Environment Variables for Production
+### Railway Deployment (Recommended)
+
+This application is configured for easy deployment on [Railway](https://railway.app/).
+
+#### 1. Setup Railway Project
+
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login to Railway
+railway login
+
+# Create new project
+railway new
+```
+
+#### 2. Add PostgreSQL Database
+
+1. In Railway dashboard, add PostgreSQL service
+2. Railway will automatically provide `DATABASE_URL`
+
+#### 3. Configure Environment Variables
+
+Set these variables in Railway dashboard:
+
+```bash
+# Required
+RAILS_MASTER_KEY=your_rails_master_key
+CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
+
+# OAuth (configure as needed)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+DISCORD_CLIENT_ID=your_discord_client_id
+DISCORD_CLIENT_SECRET=your_discord_client_secret
+
+# API Keys
+WARCRAFT_LOGS_CLIENT_ID=your_warcraft_logs_client_id
+WARCRAFT_LOGS_CLIENT_SECRET=your_warcraft_logs_client_secret
+OPENAI_API_KEY=your_openai_api_key
+```
+
+#### 4. Deploy
+
+```bash
+# Connect to Railway project
+railway link
+
+# Deploy
+railway up
+```
+
+#### 5. Update OAuth Redirect URIs
+
+Update your OAuth applications with production URLs:
+- Google: `https://your-app.railway.app/users/auth/google_oauth2/callback`
+- GitHub: `https://your-app.railway.app/users/auth/github/callback`
+- Discord: `https://your-app.railway.app/users/auth/discord/callback`
+
+### Manual Environment Variables for Production
 
 Ensure all required environment variables are set:
 
-- Database credentials
+- `DATABASE_URL` (automatically provided by Railway PostgreSQL)
+- `RAILS_MASTER_KEY` (get from `config/master.key`)
 - OAuth provider credentials
-- API keys (Warcraft Logs, OpenAI)
-- Rails master key: `RAILS_MASTER_KEY`
+- API keys (Warcraft Logs, OpenAI, Cloudinary)
 
-### Docker Deployment (if using)
+### Docker Deployment (Alternative)
 
 ```bash
 # Build image
