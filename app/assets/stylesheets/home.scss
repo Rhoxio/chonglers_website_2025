@@ -174,6 +174,71 @@ nav {
   }
 }
 
+// Flash Messages
+#flash-messages {
+  position: fixed;
+  top: 100px;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.flash-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+
+  &.flash-notice {
+    background: rgba(34, 197, 94, 0.9);
+    border-left: 4px solid #22c55e;
+    color: white;
+  }
+
+  &.flash-alert {
+    background: rgba(239, 68, 68, 0.9);
+    border-left: 4px solid #ef4444;
+    color: white;
+  }
+}
+
+.flash-text {
+  flex: 1;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.flash-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
 // User Profile in Header
 .nav-links .user-profile {
   display: flex;
@@ -600,6 +665,68 @@ footer {
   }
 }
 
+// Footer Discord Actions
+.footer-discord-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-discord-server-btn,
+.footer-discord-signup-btn,
+.footer-discord-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #5865f2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    background: #4752c4;
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.footer-logout-btn {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    color: $accent-light;
+  }
+}
+
+.footer-auth-btn {
+  margin: 0;
+
+  form {
+    margin: 0;
+  }
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
@@ -906,6 +1033,16 @@ footer {
 
   .nav-links {
     display: none;
+  }
+
+  #flash-messages {
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .flash-message {
+    padding: 0.75rem 1rem;
   }
 
   .hero h1 {

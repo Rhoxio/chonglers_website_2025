@@ -13,14 +13,22 @@
 
   <body>
     <%= render 'shared/header' %>
-    
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    
+
+    <div id="flash-messages">
+      <% if notice %>
+        <div class="flash-message flash-notice" data-controller="flash" data-flash-auto-hide-value="5000">
+          <span class="flash-text"><%= notice %></span>
+          <button class="flash-close" data-action="click->flash#close">&times;</button>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="flash-message flash-alert" data-controller="flash" data-flash-auto-hide-value="5000">
+          <span class="flash-text"><%= alert %></span>
+          <button class="flash-close" data-action="click->flash#close">&times;</button>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
     
     <%= render 'shared/footer' %>
