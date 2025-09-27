@@ -63,6 +63,18 @@ nav {
   display: flex;
   list-style: none;
   gap: 2rem;
+  align-items: center;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  form {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .nav-links a {
@@ -92,19 +104,21 @@ nav {
   }
 }
 
-.discord-login-btn {
-  display: flex !important;
+.nav-links .discord-login-btn {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #5865f2 !important;
-  color: white !important;
+  background: #5865f2;
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
+  border: none;
   transition: all 0.3s ease;
+  text-decoration: none;
 
   &:hover {
-    background: #4752c4 !important;
-    color: white !important;
+    background: #4752c4;
+    color: white;
     transform: translateY(-1px);
   }
 
@@ -122,18 +136,20 @@ nav {
   }
 }
 
-.logout-btn {
-  background: none !important;
-  border: none !important;
-  color: $text-primary !important;
-  font-weight: 500 !important;
-  font-size: 1rem !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  position: relative !important;
+.nav-links .logout-btn {
+  background: none;
+  border: none;
+  color: $text-primary;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  line-height: normal;
 
   &:hover {
-    color: $text-secondary !important;
+    color: $text-secondary;
   }
 
   &::after {
@@ -149,6 +165,30 @@ nav {
 
   &:hover::after {
     width: 100%;
+  }
+}
+
+// User Profile in Header
+.nav-links .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid $border-color;
+
+  .user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .username {
+    color: $text-primary;
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 }
 

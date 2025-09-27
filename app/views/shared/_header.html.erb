@@ -6,11 +6,18 @@
         <%= link_to "Chonglers", root_path %>
       </div>
       <ul class="nav-links">
-        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Gallery", root_path + "#gallery" %></li>
         <li><%= link_to "Features", root_path + "#features" %></li>
         <li><%= link_to "Join Us", root_path + "#join" %></li>
         <% if user_signed_in? %>
+          <% if current_user.discord_user? %>
+            <li class="user-profile">
+              <% if current_user.discord_avatar.present? %>
+                <%= image_tag current_user.discord_avatar, alt: "Avatar", class: "user-avatar" %>
+              <% end %>
+              <span class="username"><%= current_user.display_name %></span>
+            </li>
+          <% end %>
           <li><%= link_to "Profile", edit_user_registration_path %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Admin", admin_dashboard_path %></li>
