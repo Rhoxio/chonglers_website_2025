@@ -19,7 +19,7 @@
         <% else %>
           <li><%= link_to "Login", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to user_discord_omniauth_authorize_path, class: "discord-login-btn" do %>
+          <li><%= button_to user_discord_omniauth_authorize_path, method: :post, data: { turbo: false }, form: { style: "display: inline;" }, class: "discord-login-btn" do %>
             <%= image_tag "discord-icon.svg", alt: "Discord", width: 20, height: 20 %>
             <span>Discord</span>
           <% end %></li>
