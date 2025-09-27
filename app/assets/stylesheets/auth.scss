@@ -231,6 +231,37 @@ $border-color: rgba(255, 255, 255, 0.1);
   margin-top: 0.25rem;
 }
 
+// Discord Only Signup
+.discord-only-signup {
+  text-align: center;
+  margin: 2rem 0;
+
+  .signup-message {
+    background: rgba(88, 101, 242, 0.1);
+    border: 1px solid rgba(88, 101, 242, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+
+    h3 {
+      color: $text-primary;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
 // OAuth Section
 .oauth-section {
   margin: 1.5rem 0;

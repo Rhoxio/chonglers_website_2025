@@ -17,33 +17,12 @@
         <p class="auth-subtitle">Create your account to start your adventure</p>
       </div>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email" %>
+      <div class="discord-only-signup">
+        <div class="signup-message">
+          <h3>Join Chonglers with Discord</h3>
+          <p>We use Discord for all guild communication and coordination. Sign up with your Discord account to get started!</p>
         </div>
-
-        <div class="field">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Create a password" %>
-          <% if @minimum_password_length %>
-            <div class="password-requirements">
-              (<%= @minimum_password_length %> characters minimum)
-            </div>
-          <% end %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Join Chonglers", class: "btn-primary" %>
-        </div>
-      <% end %>
+      </div>
 
 
       <div class="auth-links">
