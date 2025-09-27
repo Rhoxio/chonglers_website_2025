@@ -92,6 +92,36 @@ nav {
   }
 }
 
+.discord-login-btn {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  background: #5865f2 !important;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #4752c4 !important;
+    color: white !important;
+    transform: translateY(-1px);
+  }
+
+  &::after {
+    display: none;
+  }
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
 // Hero Section
 .hero {
   height: 100vh;
