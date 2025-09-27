@@ -18,3 +18,11 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn-discord", data: { turbo: false } do %>
+      <%= image_tag "discord-icon.svg", alt: "Discord", width: 24, height: 24 %>
+      Sign in with <%= OmniAuth::Utils.camelize(provider) %>
+    <% end %><br />
+  <% end %>
+<% end %>

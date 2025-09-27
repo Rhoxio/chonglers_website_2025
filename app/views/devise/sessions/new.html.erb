@@ -40,15 +40,6 @@
         </div>
       <% end %>
 
-      <div class="oauth-section">
-        <div class="oauth-divider">
-          <span>or</span>
-        </div>
-        <%= link_to user_discord_omniauth_authorize_path, class: "btn-discord" do %>
-          <%= image_tag "discord-icon.svg", alt: "Discord", width: 24, height: 24 %>
-          Continue with Discord
-        <% end %>
-      </div>
 
       <div class="auth-links">
         <%= render "devise/shared/links" %>
