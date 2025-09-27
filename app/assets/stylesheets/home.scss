@@ -122,6 +122,36 @@ nav {
   }
 }
 
+.logout-btn {
+  background: none !important;
+  border: none !important;
+  color: $text-primary !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+
+  &:hover {
+    color: $text-secondary !important;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #475569, $text-secondary);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
 // Hero Section
 .hero {
   height: 100vh;
