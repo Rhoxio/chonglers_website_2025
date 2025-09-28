@@ -25,6 +25,10 @@ bundle install
 brew install postgresql
 brew services start postgresql
 
+# Install PostgreSQL if needed (Ubuntu)
+sudo apt install -y postgresql postgresql-contrib libpq-dev
+sudo service postgresql start
+
 # Create and setup databases
 rails db:create
 rails db:migrate
